@@ -110,27 +110,31 @@ while(1):
     #each slider contributes one tenth the amount to the scale factor as the slider before it
 
     if cv2.getTrackbarPos('Pixels per mm [1]','StatsProject') > 0:
-        px_to_mm1 = 1 / (cv2.getTrackbarPos('Pixels per mm [1]','StatsProject'))
-        px_to_mm += px_to_mm1
+        #px_to_mm1 = 1 / (cv2.getTrackbarPos('Pixels per mm [1]','StatsProject'))
+        px_to_mm1 = (cv2.getTrackbarPos('Pixels per mm [1]', 'StatsProject'))
+        px_to_mm += px_to_mm1/10
 
     if cv2.getTrackbarPos('Pixels per mm [2]','StatsProject') > 0:
-        px_to_mm2 = 1 / (cv2.getTrackbarPos('Pixels per mm [2]','StatsProject'))
-        px_to_mm += px_to_mm2/10
+        #px_to_mm2 = 1 / (cv2.getTrackbarPos('Pixels per mm [2]','StatsProject'))
+        px_to_mm2 = (cv2.getTrackbarPos('Pixels per mm [2]', 'StatsProject'))
+        px_to_mm += px_to_mm2/100
 
     if cv2.getTrackbarPos('Pixels per mm [3]','StatsProject') > 0:
-        px_to_mm3 = 1 / (cv2.getTrackbarPos('Pixels per mm [3]','StatsProject'))
-        px_to_mm += px_to_mm3/100
+        #px_to_mm3 = 1 / (cv2.getTrackbarPos('Pixels per mm [3]','StatsProject'))
+        px_to_mm3 = (cv2.getTrackbarPos('Pixels per mm [3]', 'StatsProject'))
+        px_to_mm += px_to_mm3/1000
 
     if cv2.getTrackbarPos('Pixels per mm [4]','StatsProject') > 0:
-        px_to_mm4 = 1 / (cv2.getTrackbarPos('Pixels per mm [4]','StatsProject'))
-        px_to_mm += px_to_mm4/1000
+        #px_to_mm4 = 1 / (cv2.getTrackbarPos('Pixels per mm [4]', 'StatsProject'))
+        px_to_mm4 = (cv2.getTrackbarPos('Pixels per mm [4]','StatsProject'))
+        px_to_mm += px_to_mm4/10000
 
     #Calculate length in mm
     lengthMM = px_to_mm*lenghtPX
 
     #format numbers
-    lengthMM = float("{0:.3f}".format(lengthMM))
-    px_to_mm = float("{0:.3f}".format(px_to_mm))
+    lengthMM = float("{0:.4f}".format(lengthMM))
+    px_to_mm = float("{0:.4f}".format(px_to_mm))
 
     font = cv2.FONT_HERSHEY_DUPLEX
     font_thick = 1
